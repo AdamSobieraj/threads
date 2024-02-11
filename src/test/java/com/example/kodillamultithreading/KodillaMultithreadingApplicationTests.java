@@ -1,0 +1,13 @@
+package com.example.kodillamultithreading;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class KodillaMultithreadingApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
