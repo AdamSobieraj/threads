@@ -84,6 +84,18 @@ public class LockedWarehouse {
         }
     }
 
+    public void remove(Product product, String by) {
+        System.out.println("I'm " + by + " and want to remove " + product);
+        final long stamp = lock.writeLock();
+        try {
+            sleep(2);
+            products.computeIfPresent(product, (key, value) -> value >  1 ? value -  1 : null);
+            System.out.println("Product " + product + " removed by " + by + ". Now is  " + countProducts());
+        } finally {
+            lock.unlockWrite(stamp);
+        }
+    }
+
         private int countProducts() {
         return products.values().stream().reduce(0, Integer::sum);
     }

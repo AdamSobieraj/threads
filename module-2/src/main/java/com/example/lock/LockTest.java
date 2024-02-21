@@ -13,7 +13,7 @@ public class LockTest {
         executorService.submit(new Worker("Worker 3", lockedWarehouse));
         executorService.submit(new InventoryWorker("Inventory 1", lockedWarehouse));
         executorService.submit(new InventoryWorker("Inventory 2", lockedWarehouse));
-
+        executorService.submit(new ProductRemovalWorker("Removal worker", lockedWarehouse));
 
         executorService.shutdown();
     }
